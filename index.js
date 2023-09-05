@@ -26,7 +26,6 @@ drumButtons.forEach(button => {
     })
 })
 
-
 document.addEventListener("keydown", function(event){
     
     if(event.key == "w")
