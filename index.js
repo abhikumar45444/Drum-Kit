@@ -10,64 +10,77 @@ let drumSounds = {
     l:'./sounds/kick-bass.mp3',
 }
 
-drumButtons.forEach(button => {
-    button.addEventListener("click", function(){
-        
-        for(let eachSound in drumSounds)
-        {
-            if(button.innerHTML == eachSound)
-            {
-                console.log(drumSounds[eachSound]);
-                let mySound = new Audio(drumSounds[eachSound]);
-                mySound.currentTime = 0;
-                mySound.play();
-            }
-        }
+for (let i = 0; i < drumButtons.length; i++) {
+    let drumButton = drumButtons[i];
+    drumButton.addEventListener("click", function(){
+        // so because the event is generated we can use this keyword to identify the button on which event is triggered and extract its innerHTML to play sound
+        let button = this.innerHTML;
+
+        playSound(button);
     })
+}
+
+
+// for keyboard event we can add eventlistener to the document itself so whenever the key pressed we can handle it.
+document.addEventListener("keydown", function(event){
+    let key = event.key;
+    
+    playSound(key);
 })
 
-document.addEventListener("keydown", function(event){
+
+// this function will play sound according the button pressed or key pressed
+function playSound(button)
+{
+    switch(button)
+        {
+            case "w":{
+                let mySound = new Audio(drumSounds  [button]);
+                mySound.currentTime = 0;
+                mySound.play();
+                break;
+            }
+            case "a":{
+                let mySound = new Audio(drumSounds  [button]);
+                mySound.currentTime = 0;
+                mySound.play();
+                break;
+            }
+            case "s":{
+                let mySound = new Audio(drumSounds  [button]);
+                mySound.currentTime = 0;
+                mySound.play();
+                break;
+            }
+            case "d":{
+                let mySound = new Audio(drumSounds  [button]);
+                mySound.currentTime = 0;
+                mySound.play();
+                break;
+            }
+            case "j":{
+                let mySound = new Audio(drumSounds  [button]);
+                mySound.currentTime = 0;
+                mySound.play();
+                break;
+            }
+            case "k":{
+                let mySound = new Audio(drumSounds  [button]);
+                mySound.currentTime = 0;
+                mySound.play();
+                break;
+            }
+            case "l":{
+                let mySound = new Audio(drumSounds  [button]);
+                mySound.currentTime = 0;
+                mySound.play();
+                break;
+            }
+
+            default :{
+                console.log("incorrect button");
+                break;
+            }
     
-    if(event.key == "w")
-    {
-        let mySound = new Audio(drumSounds[event.key]);
-        mySound.currentTime = 0;
-        mySound.play();
-    }
-    else if(event.key == "a")
-    {
-        let mySound = new Audio(drumSounds[event.key]);
-        mySound.currentTime = 0;
-        mySound.play();
-    }
-    else if(event.key == "s")
-    {
-        let mySound = new Audio(drumSounds[event.key]);
-        mySound.currentTime = 0;
-        mySound.play();
-    }
-    else if(event.key == "d")
-    {
-        let mySound = new Audio(drumSounds[event.key]);
-        mySound.currentTime = 0;
-        mySound.play();
-    }
-    else if(event.key == "j")
-    {
-        let mySound = new Audio(drumSounds[event.key]);
-        mySound.currentTime = 0;
-        mySound.play();
-    }
-    else if(event.key == "k")
-    {
-        let mySound = new Audio(drumSounds[event.key]);
-        mySound.currentTime = 0;
-        mySound.play();
-    }
-    else if(event.key == "l")
-    {
-        let mySound = new Audio(drumSounds[event.key]);
-        mySound.currentTime = 0;
-        mySound.play();
-    }
-})
+        }
+}
